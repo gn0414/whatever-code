@@ -17,7 +17,7 @@ package cn.simon.lock;
  * 成员方法锁的是实例对象
  *
  */
-public class SynchronizeDemo1 {
+public class SynchronizeDemo01 {
     static class Phone{
         public synchronized void sendEmail(){
             try {
@@ -47,10 +47,8 @@ public class SynchronizeDemo1 {
 
     }
     public static void main(String[] args) {
-//        我们可以根据
         Phone phone = new Phone();
         Phone.sendStaticEmail();
         phone.sendPhone();
-
     }
 }
