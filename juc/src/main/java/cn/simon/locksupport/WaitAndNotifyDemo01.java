@@ -5,11 +5,11 @@ public class WaitAndNotifyDemo01 {
     public static void main(String[] args) {
         Object lock = new Object();
 
-//        m1(lock);
+        m1(lock);
 
 //        error1(lock);
 
-        error2(lock);
+//        error2(lock);
     }
 
     public static void m1(Object lock){
