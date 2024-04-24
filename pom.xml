@@ -13,6 +13,7 @@
 
     <modules>
         <module>juc</module>
+        <module>annotation</module>
     </modules>
 
 

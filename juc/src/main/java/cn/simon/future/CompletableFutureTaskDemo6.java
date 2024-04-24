@@ -28,9 +28,9 @@ public class CompletableFutureTaskDemo6 {
                   new NetMall("dd")
                 );
 //        List<String> prices = stepByStep(list, "mysql");
-        List<String> prices = completableFutureSelect(list, "mysql");
+//        List<String> prices = completableFutureSelect(list, "mysql");
 
-        prices.forEach(System.out::println);
+//        prices.forEach(System.out::println);
 
         long end = System.currentTimeMillis();
 
@@ -43,13 +43,13 @@ public class CompletableFutureTaskDemo6 {
         ).collect(Collectors.toList());
     }
 
-    public static List<String> completableFutureSelect(List<NetMall> list,String productName) {
-        return list.stream().map(n -> CompletableFuture.supplyAsync(()->String.format(productName + " in %s price is %.2f",n.getName(),n.calcPrice(productName))))
-                .toList()
-                .stream()
-                .map(s -> s.join()).collect(Collectors.toList());
-
-    }
+//    public static List<String> completableFutureSelect(List<NetMall> list,String productName) {
+//        return list.stream().map(n -> CompletableFuture.supplyAsync(()->String.format(productName + " in %s price is %.2f",n.getName(),n.calcPrice(productName))))
+//                .toList()
+//                .stream()
+//                .map(s -> s.join()).collect(Collectors.toList());
+//
+//    }
 
 
 }

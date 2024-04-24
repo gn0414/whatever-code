@@ -5,8 +5,6 @@ import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.atomic.AtomicLong;
 import java.util.concurrent.atomic.LongAccumulator;
 import java.util.concurrent.atomic.LongAdder;
-import java.util.function.Consumer;
-import java.util.function.Function;
 
 class ClickNum{
     int num = 0;
@@ -36,9 +34,6 @@ class ClickNum{
 }
 public class LongAddrDemo07 {
 
-   public static void getCostTime(){
-
-   }
 
     public static final int _1W = 10000;
 
@@ -109,6 +104,8 @@ public class LongAddrDemo07 {
         }
         countDownLatch4.await();
         endTime = System.currentTimeMillis();
+
+
 
         System.out.println("cost time "+(endTime - startTime) + " num is "+clickNum.longAccumulator.get());
     }
