@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <bean id="user" class="cn.simon.basic.User"/>
+<!--    <bean id="person" class="cn.simon.basic.Person">-->
+<!--        <property name="id" value="1"/>-->
+<!--        <property name="name" value="simon"/>-->
+<!--        <property name="emails">-->
+<!--            <list>-->
+<!--                <value>simon666</value>-->
+<!--                <value>simon777</value>-->
+<!--                <value>simon888</value>-->
+<!--            </list>-->
+<!--        </property>-->
+
+<!--        <property name="tels">-->
+<!--            <set>-->
+<!--                <value>116666</value>-->
+<!--                <value>117777</value>-->
+<!--                <value>118888</value>-->
+<!--                <value>119999</value>-->
+<!--            </set>-->
+<!--        </property>-->
+
+<!--        <property name="address">-->
+<!--            <list>-->
+<!--                <value>116666</value>-->
+<!--                <value>117777</value>-->
+<!--                <value>118888</value>-->
+<!--                <value>119999</value>-->
+<!--            </list>-->
+<!--        </property>-->
+
+<!--        <property name="qqs">-->
+<!--            <map>-->
+<!--                <entry>-->
+<!--                    <key>-->
+<!--                        <value>1</value>-->
+<!--                    </key>-->
+<!--                    <value>1122</value>-->
+<!--                </entry>-->
+<!--                <entry>-->
+<!--                    <key>-->
+<!--                        <value>2</value>-->
+<!--                    </key>-->
+<!--                    <value>2233</value>-->
+<!--                </entry>-->
+<!--                <entry>-->
+<!--                    <key>-->
+<!--                        <value>3</value>-->
+<!--                    </key>-->
+<!--                    <value>3344</value>-->
+<!--                </entry>-->
+<!--            </map>-->
+<!--        </property>-->
+
+<!--        <property name="p">-->
+<!--            <props>-->
+<!--                <prop key="1">666</prop>-->
+<!--                <prop key="2">777</prop>-->
+<!--                <prop key="3">888</prop>-->
+<!--            </props>-->
+<!--        </property>-->
+
+<!--&lt;!&ndash;        <property name="user">&ndash;&gt;-->
+<!--&lt;!&ndash;            <bean class="cn.simon.basic.User"/>&ndash;&gt;-->
+<!--&lt;!&ndash;        </property>&ndash;&gt;-->
+
+<!--        <property name="user" ref="user"/>-->
+<!--    </bean>-->
+<!--    <bean id="person1" class="cn.simon.basic.Person"/>-->
+
+    <bean id="person" class="cn.simon.basic.Person" p:id="6" name="person2" p:user-ref="user"/>
+
+    <bean id="conUser" class="cn.simon.basic.User">
+        <constructor-arg name="id" value="1"/>
+        <constructor-arg name="name" value="simon"/>
+    </bean>
+
+<!--    <bean id="conn" class="cn.simon.factorybean.ConnectionFactoryBean">-->
+<!--        <property name="driverClassName" value="com.mysql.jdbc.Driver"/>-->
+<!--        <property name="url" value="jdbc:mysql://localhost:3306/mydb"/>-->
+<!--        <property name="username" value="root"/>-->
+<!--        <property name="password" value="zxmi520.."/>-->
+<!--    </bean>-->
+
+<!--    <bean id="connFactory" class="cn.simon.factorybean.ConnectionFactory"/>-->
+<!--    <bean id= "conn" factory-bean="connFactory" factory-method="getConnection"/>-->
+
+<!--    <bean id="conn" class="cn.simon.factorybean.StaticConnectionFactory" factory-method="getConnection"/>-->
+
+<!--    <bean id="account" scope="singleton" class="cn.simon.scope.Account"/>-->
+
+<!--    <bean id="product" class="cn.simon.life.Product"/>-->
+<!--    <bean id="product" scope="prototype" class="cn.simon.life.Product"/>-->
+<!--        <bean id="product" class="cn.simon.life.Product" lazy-init="true"/>-->
+    <bean id="product" class="cn.simon.life.Product" init-method="myInit">
+        <property name="name" value="simon"/>
+    </bean>
+</beans>

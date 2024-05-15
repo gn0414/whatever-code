@@ -1,5 +1,6 @@
 package cn.simon.aqs;
 
+import java.util.Arrays;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 
@@ -9,9 +10,10 @@ public class AQSDemo {
         Lock lock = new ReentrantLock();
         lock.lock();
         try {
-
         }finally {
             lock.unlock();
         }
     }
+
+
 }
