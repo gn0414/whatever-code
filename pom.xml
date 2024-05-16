@@ -16,7 +16,7 @@
         <module>juc</module>
         <module>annotation</module>
         <module>spring-context</module>
-        <module>springmvc-context</module>
+        <module>spring-mvc-context</module>
     </modules>
 
 

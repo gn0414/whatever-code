@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd http://www.alibaba.com/schema/stat http://www.alibaba.com/schema/stat.xsd http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd">
+    <!--开启注解扫描 -->
+    <context:component-scan base-package="cn.simon.controller"/>
+
+<!--    &lt;!&ndash; 配置处理器映射器&ndash;&gt;-->
+<!--    <bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping"/>-->
+<!--    &lt;!&ndash; 配置处理器适配器&ndash;&gt;-->
+<!--    <bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter"/>-->
+    <!-- spring3版本之后已经不建议自己去手动配置处理器映射器和处理器适配器了,而是使用一个schema,它不仅帮我们做了参数类型转换、还做了跳转 响应处理... -->
+    <mvc:annotation-driven/>
+
+    <!-- 配置视图解析器-->
+    <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <!-- 注入前缀和后缀 -->
+        <property name="prefix" value="/"/>
+        <property name="suffix" value=".jsp"/>
+    </bean>
+
+    <mvc:default-servlet-handler/>
+
+    <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+        <property name="maxUploadSize" value="20971520"/>
+    </bean>
+    
+    <bean id="myInterceptor" class="cn.simon.interceptors.MyInterceptor"/>
+    
+    <mvc:interceptors>
+        <mvc:interceptor>
+            <!-- 拦截哪些路径-->
+            <mvc:mapping path="/hello"/>
+            <ref bean="myInterceptor"/>
+        </mvc:interceptor>
+    </mvc:interceptors>
+
+    <bean class="cn.simon.handlerexception.GlobalExceptionResolver"/>
+
+
+</beans>
